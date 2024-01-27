@@ -1,0 +1,39 @@
+// Footer.js
+
+import React from 'react';
+import { ProductConsumer } from '../context';
+import './Footer.css'; // Import the CSS file
+
+export default function Footer() {
+  return (
+    <div className="FooterWrapper"> {/* Add the class name */}
+      <div className="container py-3">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="text-capitalize">
+              copyright &copy; TechVerse {new Date().getFullYear()}. all rights reserved{""}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Footer.css */
+
+.FooterWrapper {
+  background: var(--darkGrey);
+  color: var(--mainWhite);
+}
+
+.FooterWrapper .icon {
+  font-size: 1.5rem;
+  color: var(--mainWhite);
+  transition: var(--mainTransition);
+}
+
+.FooterWrapper .icon:hover {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
