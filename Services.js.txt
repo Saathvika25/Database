@@ -1,0 +1,63 @@
+// Services.js
+
+import React, { Component } from 'react';
+import './Services.css'; // Import the CSS file
+import { FaDolly, FaRedo, FaDollarSign } from 'react-icons/fa';
+
+export default class Services extends Component {
+  state = {
+    services: [
+      {
+        id: 1,
+        icon: <FaDolly />,
+        title: 'Free Shipping',
+        text: 'Lorum ipsum',
+      },
+      {
+        id: 2,
+        icon: <FaRedo />,
+        title: '30 Days Return Policy',
+        text: 'Lorum ipsum',
+      },
+      {
+        id: 3,
+        icon: <FaDollarSign />,
+        title: 'Secure Payment',
+        text: 'Lorum ipsum',
+      },
+    ],
+  };
+
+  render() {
+    return (
+      <section className="ServicesWrapper py-5"> {/* Add the class name */}
+        <div className="container">
+          <div className="row">
+            {this.state.services.map((item) => {
+              return (
+                <div
+                  className="col-10 mx-auto col-sm-6 col-md-4 text-center my-3"
+                  key={item.id}
+                >
+                  <div className="service-icon">{item.icon}</div>
+                  <div className="mt-3 text-capitalize">{item.title}</div>
+                  <div className="mt-3">{item.text} </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+}
+/* Services.css */
+
+.ServicesWrapper {
+  background: rgba(95, 183, 234, 0.5);
+}
+
+.ServicesWrapper .service-icon {
+  font-size: 2.5rem;
+  color: var(--primaryColor);
+}
