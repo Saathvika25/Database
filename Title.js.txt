@@ -1,0 +1,40 @@
+// Title.js
+
+import React from 'react';
+import styled from 'styled-components';
+import './Title.css'; // Import the CSS file
+
+function Title({ title, center }) {
+  return (
+    <div className={`TitleWrapper row ${center ? 'center' : ''}`}>
+      <div className="col">
+        <h2 className="text-title">{title}</h2>
+        <div className="title-underline"></div>
+      </div>
+    </div>
+  );
+}
+
+export default Title;
+
+
+/* Title.css */
+
+.TitleWrapper {
+  text-align: left;
+}
+
+.TitleWrapper.center {
+  text-align: center;
+}
+
+.TitleWrapper .title-underline {
+  height: 0.25rem;
+  width: 7rem;
+  background: var(--primaryColor);
+  margin: 0;
+}
+
+.TitleWrapper.center .title-underline {
+  margin: 0 auto;
+}
