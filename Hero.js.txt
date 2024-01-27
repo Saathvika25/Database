@@ -1,0 +1,47 @@
+// Hero.js
+
+import React from 'react';
+import styled from 'styled-components';
+import mainBcg from '../images/mainBcg.jpeg';
+import './Hero.css'; // Import the CSS file
+
+function Hero({ img, title, max, children }) {
+  return (
+    <div className="HeroWrapper"> {/* Add the class name */}
+      <div className="banner">
+        <h1 className="title"> {title}</h1>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+Hero.defaultProps = {
+  img: mainBcg,
+};
+
+export default Hero;
+
+/* Hero.css */
+
+.HeroWrapper {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: ${props => (props.max ? '100vh' : '60vh')};
+  color: var(--mainWhite);
+  background: linear-gradient(var(--primaryRGBA), var(--primaryRGBA)),
+    url(${props => props.img}) center/cover no-repeat;
+}
+
+.HeroWrapper .banner {
+  padding: 2rem;
+}
+
+.HeroWrapper .title {
+  font-size: 3.5rem;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+}
