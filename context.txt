@@ -1,24 +1,18 @@
  const value = useContext(ProductContext);
-  const { addToCart, setSingleProduct } = value;
+  const { links, sidebarOpen, handleSidebar } = value;
 
   return (
-    <ProductWrapper className="col-10 mx-auto col-sm-8 col-md-6 col-lg-4 my-3">
-      <div className="card">
-        <div className="img-container">
-          <img src={product.image} className="card-img-top p-5" style={{ height: '320px' }} />
-
-          <div className="product-icons">
-            <Link to={`/products/${product.id}`} onClick={() => setSingleProduct(product.id)}>
-              <FaSearch className="icon"></FaSearch>
+    <SideWrapper show={sidebarOpen}>
+      <ul>
+        {links.map((link) => (
+          <li key={link.id}>
+            <Link to={link.path} className="sidebar-link" onClick={handleSidebar}>
+              {link.text}
             </Link>
-            <FaCartPlus className="icon" onClick={() => addToCart(product.id)}></FaCartPlus>
-          </div>
-        </div>
-
-        <div className="card-body d-flex justify-content-between">
-          <p className="mb-0">{product.title}</p>
-          <p className="mb-0 text-main"> Rs.{product.price}</p>
-        </div>
-      </div>
-    </ProductWrapper>
+          </li>
+        ))}
+      </ul>
+    </SideWrapper>
   );
+}
+
